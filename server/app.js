@@ -25,4 +25,4 @@ app.use('/reviews', router);
 // set port
 const PORT = process.env.PORT;
 app.listen(PORT);
-console.log(`Server listening at port http://localhost:${PORT}`)
+console.log(`Server listening at port http://localhost:8080`)

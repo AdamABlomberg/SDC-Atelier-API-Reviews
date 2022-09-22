@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
   mode: "development",
-  entry: "./server/index.js",
+  entry: "./server/index.jsx",
   output: {
     path: path.join(__dirname, 'public'),
     filename: "bundle.js"
@@ -31,6 +31,6 @@ module.exports = {
     },
     compress: true,
     // [port] what port on our local machine to run the dev server
-    port: 3000,
+    port: 8080,
   }
 }
