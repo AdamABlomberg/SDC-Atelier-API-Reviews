@@ -8,7 +8,6 @@ import QuestionComp from '../src/components/Q&A/QuestionComp.jsx';
 import QuestionReport from '../src/components/Q&A/QuestionReport.jsx';
 import AnswerComp from '../src/components/Q&A/AnswerComp.jsx';
 import axios from 'axios';
-//import App from '../src/index.jsx';
 var questionItem = {
   answers: {
     5986230: {id: 5986230, body: 'it is ok', date: '2022-07-14T00:00:00.000Z', answerer_name: 'haha', helpfulness: 14},

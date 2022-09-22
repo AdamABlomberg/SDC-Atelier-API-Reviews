@@ -3,7 +3,6 @@ import '@testing-library/react/dont-cleanup-after-each';
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event';
 import { render, screen, waitFor, fireEvent, rerender } from '@testing-library/react';
-// import App from '../src/index.jsx';
 import ProductInfo from '../src/components/ProductInfo.jsx'
 import axios from 'axios';
 import Overview from '../src/components/Overview.jsx'
