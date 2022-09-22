@@ -36,8 +36,8 @@ class RatingsReviews extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    //console.log('hello from ratingsreviews componentDidUpdate');
-    //console.log('this.props.product =', this.props.product);
+    console.log('hello from ratingsreviews componentDidUpdate');
+    console.log('this.props.product =', this.props.product);
     if (this.props.product !== prevProps.product && this.props.product) {
       axios.get('/reviews',
         {
