@@ -6,4 +6,4 @@ coverage/
 SEGAkeypair.pem
 reviews.pem
 .env
-
+public/bundle.js
