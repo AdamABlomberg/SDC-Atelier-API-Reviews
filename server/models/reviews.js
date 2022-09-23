@@ -1,4 +1,4 @@
-var db = require('../db').pool;
+var db = require('../db').client;
 const { Pool, Client } = require('pg')
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
