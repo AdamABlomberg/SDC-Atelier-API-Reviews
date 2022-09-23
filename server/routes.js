@@ -7,7 +7,7 @@ router.get('', controller.reviews.getReview)  // just products... continues to u
 
 router.get('/meta', controller.reviews.getMeta);  // /:variable url  placeholder and endpoint variable
 
-// router.post('', controller.reviews.postReview);
+router.post('', controller.reviews.postReview);
 
 // router.put('/:review_id/helpful', controller.reviews.putHelpful);
 

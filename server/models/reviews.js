@@ -63,76 +63,77 @@ module.exports = {
         return res.rows[0];
       })
       .catch((err) => (console.log('error in getting metadata', err)));
-  }
-  // const postReview = (postObject) => {
-  //   const product_id = postObject.product_id
-  //   const rating = postObject.rating
-  //   const summary = postObject.summary
-  //   const body = postObject.body
-  //   const recommend = postObject.recommend
-  //   const reviewer_name = postObject.reviewer_name
-  //   const reviewer_email = postObject.reviewer_email
-  //   const date = postObject.date || Date.now()
-  //   const response = null
-  //   const helpfulness = '0'
-  //   const photos = postObject.photos
-  //   const characteristics = postObject.characteristics
+  },
 
-  //   const queryArgs = [product_id, rating, summary, body, recommend, reviewer_name, reviewer_email, date, response, helpfulness, photos, characteristics]
+  postReview: (postObject) => {
+    const product_id = postObject.product_id
+    const rating = postObject.rating
+    const summary = postObject.summary
+    const body = postObject.body
+    const recommend = postObject.recommend
+    const reviewer_name = postObject.reviewer_name
+    const reviewer_email = postObject.reviewer_email
+    const date = postObject.date || Date.now()
+    const response = null
+    const helpfulness = '0'
+    const photos = postObject.photos
+    const characteristics = postObject.characteristics
 
-  //   const queryString =
-  //     `INSERT INTO review (product_id, rating, summary, body, recommend, reviewer_name, reviewer_email, date, response, helpfulness) VALUES ($1,$2,'$3','$4',$5,'$6','$7',$8,'$9',$10)`
+    const queryArgs = [product_id, rating, summary, body, recommend, reviewer_name, reviewer_email, date, response, helpfulness, photos, characteristics]
 
-  //   const queryString2 =  `INSERT INTO photos (url, review_id) VALUES ('${url}', (SELECT MAX (id) FROM review))`
+    const queryString =
+      `INSERT INTO review (product_id, rating, summary, body, recommend, reviewer_name, reviewer_email, date, response, helpfulness) VALUES ($1,$2,'$3','$4',$5,'$6','$7',$8,'$9',$10)`
 
-  //   const queryString3 = `INSERT INTO characteristics (product_id, name) VALUES ($1, '${charObj[key]}')`
+    const queryString2 =  `INSERT INTO photos (url, review_id) VALUES ('${url}', (SELECT MAX (id) FROM review))`
 
-  //   const queryString4 = `INSERT INTO characteristicreviews (characteristic_id, review_id, value) VALUES ((SELECT MAX (id) FROM characteristics), (SELECT MAX (id) FROM review), ${characteristics[key]})`
+    const queryString3 = `INSERT INTO characteristics (product_id, name) VALUES ($1, '${charObj[key]}')`
 
-  //   db.query(queryString, queryArgs)
-  //     .then(() => {
-  //       console.log('successfully posted review');
-  //     })
-  //     .catch((err) => (console.log('error in posting 1', err)));
-  //   photos.forEach((url) => {
-  //     db.query(queryString2, queryArgs)
-  //       .then(() => {
-  //         console.log('successfully posted photo');
-  //       })
-  //       .catch((err) => (console.log('error in posting 2', err)));
-  //   })
-  //   const charObj = {
-  //     223577: 'Fit',
-  //     223578: 'Length',
-  //     223579: 'Comfort',
-  //     223580: 'Quality'
-  //   }
-  //   for (var key in characteristics) {
-  //     db.query(queryString3,queryArgs)
-  //       .then(() => {
-  //         console.log('successfully posted characteristics 1');
-  //       })
-  //       .catch((err) => (console.log('error in posting 3', err)));
-  //     db.query(queryString4, queryArgs)
-  //       .then(() => {
-  //         console.log('successfully posted characteristics 2');
-  //       })
-  //       .catch((err) => (console.log('error in posting 4', err)));
-  //   }
-  // }
-  // const markHelpful = (reviewId) => {
+    const queryString4 = `INSERT INTO characteristicreviews (characteristic_id, review_id, value) VALUES ((SELECT MAX (id) FROM characteristics), (SELECT MAX (id) FROM review), ${characteristics[key]})`
+
+    return db.query(queryString, queryArgs)
+      .then(() => {
+        console.log('successfully posted review');
+      })
+      .catch((err) => (console.log('error in posting 1', err)));
+    photos.forEach((url) => {
+      return db.query(queryString2, queryArgs)
+        .then(() => {
+          console.log('successfully posted photo');
+        })
+        .catch((err) => (console.log('error in posting 2', err)));
+    })
+    const charObj = {
+      223577: 'Fit',
+      223578: 'Length',
+      223579: 'Comfort',
+      223580: 'Quality'
+    }
+    for (var key in characteristics) {
+      return db.query(queryString3,queryArgs)
+        .then(() => {
+          console.log('successfully posted characteristics 1');
+        })
+        .catch((err) => (console.log('error in posting 3', err)));
+      return db.query(queryString4, queryArgs)
+        .then(() => {
+          console.log('successfully posted characteristics 2');
+        })
+        .catch((err) => (console.log('error in posting 4', err)));
+    }
+  },
+  // markHelpful: (reviewId) => {
   //   const queryArgs = [reviewId]
   //   const queryString =`UPDATE review SET helpfulness = helpfulness + 1 WHERE id = $1`
-  //   db.query(queryString,queryArgs)
+  //   return db.query(queryString,queryArgs)
   //     .then(() => {
   //       console.log('successfully increased helpfulness');
   //     })
   //     .catch((err) => (console.log('error in increasing helpfulness', err)));
-  // }
-  // const markReported = (reviewId) => {
+  // },
+  // markReported: (reviewId) => {
   //   const queryArgs = [reviewId]
   //   const queryString =`UPDATE review SET reported = true WHERE id = $1`
-  //   db.query(queryString,queryArgs)
+  //   return db.query(queryString,queryArgs)
   //     .then(() => {
   //       console.log('successfully reported');
   //     })

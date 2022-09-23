@@ -26,18 +26,18 @@ module.exports = {
       .catch((err) => {
         console.log(err)
       })
-  }
+  },
 
-  // postReview: function (req, res) {
-  //   var params = req.query.postObject;
-  //   return models.reviews.postReview(params)
-  //   .then((data) => {
-  //     res.status(200).send(console.log('review posted'))
-  //   })
-  //   .catch((err) => {
-  //     console.log(err)
-  //   })
-  // }
+  postReview: function (req, res) {
+    var params = req.query.postObject;
+    return models.reviews.postReview(params)
+    .then((data) => {
+      res.status(200).send(console.log('review posted'))
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  },
 
   // putHelpful: function (req,res) {
   //   var params = req.query.reviewId;
@@ -48,7 +48,7 @@ module.exports = {
   //   .catch((err) => {
   //     console.log(err)
   //   })
-  // }
+  // },
 
   // putReported: function (req,res) {
   //   var params = req.query.reviewId;
